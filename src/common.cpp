@@ -44,7 +44,7 @@ bool common::has_suffix(const std::string& str, const std::string& suffix) {
 	#endif
 }
 
-std::string str_first(const std::string& str, const common::char_type& delim) {
+std::string common::str_first(const std::string& str, const common::char_type& delim) {
 
 	if ( auto pos = str.find_first_of(delim); pos != std::string::npos )
 		return str.substr(0, pos);
@@ -486,7 +486,7 @@ std::string common::uptime_str(const std::time_t& t, bool longdesc, bool seconds
 
 	int h = _t > 3600 ? _t / 3600 : 0;
 	if ( h > 0 )
-		_t -= d * 3600;
+		_t -= h * 3600;
 
 	int m = _t > 60 ? _t / 60 : 0;
 	if ( m > 0 )
@@ -554,7 +554,7 @@ common::lowercase_map<std::string> common::parseFile(const std::string& filename
 
 		pos += 1;
 		std::string k = common::trim_ws(common::to_lower(s.substr(0, pos - 1)));
-		std::string v = common::trim_ws(s.substr(pos, sizeof(v) + 1 - pos));
+		std::string v = common::trim_ws(s.substr(pos));
 
 		if ( k.empty() || v.empty())
 			continue;

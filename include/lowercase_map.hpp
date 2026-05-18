@@ -160,12 +160,12 @@ namespace common {
 
 	template <class T>
 	T lowercase_map<T>::operator [](const std::string& key) const {
-		return this -> _m[common::to_lower(std::as_const(key))];
+		return this -> _m.at(common::to_lower(std::as_const(key)));
 	}
 
 	template <class T>
 	T lowercase_map<T>::operator [](std::string& key) const {
-		return this -> _m[common::to_lower(std::as_const(key))];
+		return this -> _m.at(common::to_lower(std::as_const(key)));
 	}
 
 	template <class T>
@@ -242,22 +242,22 @@ namespace common {
 
 	template <class T>
 	lowercase_map<T>& lowercase_map<T>::operator *() {
-		return this;
+		return *this;
 	}
 
 	template <class T>
 	const lowercase_map<T>& lowercase_map<T>::operator*() const {
-		return this;
+		return *this;
 	}
 
 	template <class T>
 	lowercase_map<T>* lowercase_map<T>::operator ->() {
-		return *this;
+		return this;
 	}
 
 	template <class T>
 	const lowercase_map<T>* lowercase_map<T>::operator ->() const {
-		return *this;
+		return this;
 	}
 
 	template <class T>
@@ -293,7 +293,7 @@ namespace common {
 
 	template <class T>
 	const T lowercase_map<T>::at(const std::string& key) const {
-		return this -> _m[common::to_lower(std::as_const(key))];
+		return this -> _m.at(common::to_lower(std::as_const(key)));
 	}
 
 	template <class T>

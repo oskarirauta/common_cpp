@@ -246,18 +246,12 @@ inline std::string common::to_string(const T& value, const int precision) {
 
 template<typename K, typename V>
 inline bool common::map_contains(K key, const std::map<K, V> m) {
-
-	for ( auto it = m.begin(); it != m.end(); it++ )
-		if ( it -> first == key )
-			return true;
-
-	return false;
+	return m.find(key) != m.end();
 }
 
 template<typename T>
 bool common::vector_contains(const T& value, const std::vector<T>& values) {
-
-	return std::find(values.begin(), values.end(), value) != values.end();
+	return common::is_any_of(value, values);
 }
 
 template<typename T>
