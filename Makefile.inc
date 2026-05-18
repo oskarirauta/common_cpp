@@ -1,5 +1,5 @@
 COMMON_DIR?=./common
-INCLUDES += -I$(COMMON_DIR)/include
+INCLUDES += -I$(COMMON_DIR)/include -I$(COMMON_DIR)/rva/include -I$(COMMON_DIR)/tsl/include
 COMMON_OBJS:= \
 	objs/common_scanner.o \
 	objs/common.o
