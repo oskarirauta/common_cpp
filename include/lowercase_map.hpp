@@ -363,25 +363,25 @@ namespace common {
 	template <class T>
 	bool lowercase_map<T>::insert_at_position(lowercase_map<T>::const_iterator pos, const std::pair<std::string, T>& value) {
 		std::pair<std::string, T> p = { common::to_lower(value.first), value.second };
-		return this -> m.insert_at_position(pos.c_it, p).second;
+		return this -> _m.insert_at_position(pos.c_it, p).second;
 	}
 
 	template <class T>
 	bool lowercase_map<T>::insert_at_position(lowercase_map<T>::const_iterator pos, std::pair<std::string, T>& value) {
 		std::pair<std::string, T> p = { common::to_lower(value.first), value.second };
-		return this -> m.insert_at_position(pos.c_it, p).second;
+		return this -> _m.insert_at_position(pos.c_it, p).second;
 	}
 
 	template <class T>
 	bool lowercase_map<T>::emplace_at_position(lowercase_map<T>::const_iterator pos, const std::pair<std::string, T>& value) {
 		std::pair<std::string, T> p = { common::to_lower(value.first), value.second };
-		return this -> m.emplace_at_position(pos.c_it, p).second;
+		return this -> _m.emplace_at_position(pos.c_it, p).second;
 	}
 
 	template <class T>
 	bool lowercase_map<T>::emplace_at_position(lowercase_map<T>::const_iterator pos, std::pair<std::string, T>& value) {
 		std::pair<std::string, T> p = { common::to_lower(value.first), value.second };
-		return this -> m.emplace_at_position(pos.c_it, p).second;
+		return this -> _m.emplace_at_position(pos.c_it, p).second;
 	}
 
 	template <class T>
