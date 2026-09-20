@@ -54,7 +54,7 @@ class FeatureSet {
 
 		FeatureSet<T>& operator =(const std::initializer_list<T>& features);
 		FeatureSet<T>& operator =(const FeatureSet<T>& other);
-		bool operator ==(const FeatureSet<T>& other);
+		bool operator ==(const FeatureSet<T>& other) const;
 
 		bool contains(const T& type) const;
 		void set(const T& type, bool state = true);
@@ -171,7 +171,7 @@ FeatureSet<T>& FeatureSet<T>::operator =(const FeatureSet<T>& other) {
 }
 
 template <class T>
-bool FeatureSet<T>::operator ==(const FeatureSet<T>& other) {
+bool FeatureSet<T>::operator ==(const FeatureSet<T>& other) const {
 
 	if ( this -> store.size() != other.store.size())
 		return false;
@@ -243,31 +243,31 @@ FeatureSet<T>::FeatureSet(const std::initializer_list<T> features) {
 }
 
 template <class T>
-FeatureSet<T>::iterator<T> FeatureSet<T>::begin() {
+typename FeatureSet<T>::template iterator<T> FeatureSet<T>::begin() {
 	return FeatureSet<T>::iterator<T>(this -> store.begin());
 }
 
 template <class T>
-FeatureSet<T>::iterator<T> FeatureSet<T>::end() {
+typename FeatureSet<T>::template iterator<T> FeatureSet<T>::end() {
 	return FeatureSet<T>::iterator<T>(this -> store.end());
 }
 
 template <class T>
-FeatureSet<T>::const_iterator<T> FeatureSet<T>::cbegin() {
+typename FeatureSet<T>::template const_iterator<T> FeatureSet<T>::cbegin() {
         return FeatureSet<T>::const_iterator<T>(this -> store.cbegin());
 }
 
 template <class T>
-FeatureSet<T>::const_iterator<T> FeatureSet<T>::cend() {
+typename FeatureSet<T>::template const_iterator<T> FeatureSet<T>::cend() {
         return FeatureSet<T>::const_iterator<T>(this -> store.cend());
 }
 
 template <class T>
-FeatureSet<T>::const_iterator<T> FeatureSet<T>::begin() const {
+typename FeatureSet<T>::template const_iterator<T> FeatureSet<T>::begin() const {
         return FeatureSet<T>::const_iterator<T>(this -> store.cbegin());
 }
 
 template <class T>
-FeatureSet<T>::const_iterator<T> FeatureSet<T>::end() const {
+typename FeatureSet<T>::template const_iterator<T> FeatureSet<T>::end() const {
         return FeatureSet<T>::const_iterator<T>(this -> store.cend());
 }
